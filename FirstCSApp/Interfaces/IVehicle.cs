@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FirstCSApp
+namespace FirstCSApp.Interfaces
 {
     public interface IVehicle
     {

@@ -1,66 +1,66 @@
 ﻿using System;
 using FirstCSApp.Interfaces;
 
-namespace FirstCSApp
+namespace FirstCSApp.Models
 {
-    public class Tesla : IVehicle, IElectricVehicle
+    public class Bronco : IVehicle, IGasVehicle
     {
-        public Tesla(string name, int mileage, int kwh, double charge)
+        public Bronco(string name, int mileage, double tankFillAmt, string engineType)
         {
             Name = name;
             Mileage = mileage;
-            BatteryKwh = kwh;
-            BatteryLife = charge;
+            TankFillStatus = tankFillAmt;
+            EngineType = engineType;
         }
 
         public string Name { get; set; }
         public int Mileage { get; set; }
-        public int BatteryKwh { get; set; }
-        public double BatteryLife { get; set; }
+        public double TankFillStatus { get; set; }
+        public string EngineType { get; set; }
 
         public void Drive()
         {
-            Console.WriteLine("Starting Tesla....");
-            Console.WriteLine("Zoooommmm!");
+            Console.WriteLine($"\nStarting {Name}....");
+            Console.WriteLine("Vrroooommmm!");
 
-            BatteryLife -= 30;
+            TankFillStatus -= 30;
 
-            Console.WriteLine("\nCurrent Battery Life: " + BatteryLife + "%");
-            Console.WriteLine("Would you like to recharge?");
+            Console.WriteLine("\nCurrent Tank Status: " + TankFillStatus+ "%");
+            Console.WriteLine("Would you like to refill?");
             Console.WriteLine("1. Yes");
             Console.WriteLine("2. No");
             Console.Write("> ");
 
-            string recharge = Console.ReadLine();
+            string refill = Console.ReadLine();
 
-            if (recharge == "1")
+            if (refill == "1")
             {
-                Charge();
+                Refill();
             }
         }
 
-        public void Charge()
+        public void Refill()
         {
-            Console.WriteLine("How much time would you like to charge?");
-            Console.WriteLine("1. 10 minutes");
-            Console.WriteLine("2. 20 minutes");
-            Console.WriteLine("3. 30 minutes");
-            Console.WriteLine("4. 40 minutes");
+            Console.WriteLine("How much would you like to put in?");
+            Console.WriteLine("1. $10");
+            Console.WriteLine("2. $20");
+            Console.WriteLine("3. $30");
+            Console.WriteLine("4. $40");
             Console.Write("> ");
 
             string option = Console.ReadLine();
 
-            switch (option)
+            switch(option)
             {
                 case "1":
-                    BatteryLife *= 1.25;
+                    TankFillStatus *= 1.25;
 
-                    if (BatteryLife > 100)
+                    if (TankFillStatus > 100)
                     {
-                        BatteryLife = 100;
+                        TankFillStatus = 100;
                     }
 
-                    Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
                     Console.WriteLine($"\n1. Go for another drive?");
                     Console.WriteLine($"2. Exit");
                     Console.Write("> ");
@@ -74,14 +74,14 @@ namespace FirstCSApp
                     break;
 
                 case "2":
-                    BatteryLife *= 1.50;
+                    TankFillStatus *= 1.50;
 
-                    if (BatteryLife > 100)
+                    if (TankFillStatus > 100)
                     {
-                        BatteryLife = 100;
+                        TankFillStatus = 100;
                     }
 
-                    Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
                     Console.WriteLine($"\n1. Go for another drive?");
                     Console.WriteLine($"2. Exit");
                     Console.Write("> ");
@@ -95,14 +95,14 @@ namespace FirstCSApp
                     break;
 
                 case "3":
-                    BatteryLife *= 1.75;
+                    TankFillStatus *= 1.75;
 
-                    if (BatteryLife > 100)
+                    if (TankFillStatus > 100)
                     {
-                        BatteryLife = 100;
+                        TankFillStatus = 100;
                     }
 
-                    Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
                     Console.WriteLine($"\n1. Go for another drive?");
                     Console.WriteLine($"2. Exit");
                     Console.Write("> ");
@@ -116,14 +116,14 @@ namespace FirstCSApp
                     break;
 
                 case "4":
-                    BatteryLife *= 2;
+                    TankFillStatus *= 2;
 
-                    if (BatteryLife > 100)
+                    if (TankFillStatus > 100)
                     {
-                        BatteryLife = 100;
+                        TankFillStatus = 100;
                     }
 
-                    Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
                     Console.WriteLine($"\n1. Go for another drive?");
                     Console.WriteLine($"2. Exit");
                     Console.Write("> ");
@@ -136,6 +136,7 @@ namespace FirstCSApp
 
                     break;
             }
+
         }
     }
 }

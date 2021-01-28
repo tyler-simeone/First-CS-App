@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace FirstCSApp
+namespace FirstCSApp.Interfaces
 {
     public interface IElectricVehicle
     {
         public int BatteryKwh { get; set; }
-        public int BatteryLife { get; set; }
+        public double BatteryLife { get; set; }
 
         public void Charge()
         {

@@ -1,4 +1,7 @@
 ﻿using System;
+using FirstCSApp.Models;
+using FirstCSApp.Interfaces;
+using System.Collections.Generic;
 
 namespace FirstCSApp
 {
@@ -9,10 +12,23 @@ namespace FirstCSApp
 
             Rivian rivian = new Rivian("Rivian R1T", 25, 100, 100);
             Tesla tesla = new Tesla("Tesla P100D", 50, 100, 100);
+            Bronco bronco = new Bronco("Ford Bronco", 20, 100, "V8");
+
+            List<IVehicle> availableVehicles = new List<IVehicle>()
+            {
+                rivian, tesla, bronco
+            };
 
             Console.WriteLine("Choose a vehicle");
-            Console.WriteLine("1. Rivian");
-            Console.WriteLine("2. Tesla");
+
+            int counter = 1;
+
+            availableVehicles.ForEach(vehicle =>
+            {
+                Console.WriteLine($"{counter++}. {vehicle.Name}");
+            });
+
+            Console.Write("> ");
 
             string selectedVehicle = Console.ReadLine();
 
@@ -24,23 +40,9 @@ namespace FirstCSApp
             {
                 tesla.Drive();
             }
-
-            Console.WriteLine("Would you like to recharge?");
-            Console.WriteLine("1. Yes");
-            Console.WriteLine("2. No");
-
-            string chargeEV = Console.ReadLine();
-
-            if (chargeEV == "1")
+            else if (selectedVehicle == "3")
             {
-                if (selectedVehicle == "1")
-                {
-                    rivian.Charge(10);
-                }
-                else if (selectedVehicle == "2")
-                {
-                    tesla.Charge(10);
-                }
+                bronco.Drive();
             }
         }
     }
