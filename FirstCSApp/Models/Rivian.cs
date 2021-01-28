@@ -16,7 +16,7 @@ namespace FirstCSApp
         public string Name { get; set; }
         public int Mileage { get; set; }
         public int BatteryKwh { get; set; }
-        public double BatteryLife { get; set; } = 100;
+        public double BatteryLife { get; set; }
 
         public void Drive()
         {
@@ -26,6 +26,17 @@ namespace FirstCSApp
             BatteryLife -= 30;
 
             Console.WriteLine("\nCurrent Battery Life: " + BatteryLife + "%");
+            Console.WriteLine("Would you like to recharge?");
+            Console.WriteLine("1. Yes");
+            Console.WriteLine("2. No");
+            Console.Write("> ");
+
+            string recharge = Console.ReadLine();
+
+            if (recharge == "1")
+            {
+                Charge();
+            }
         }
 
         public void Charge()
@@ -50,6 +61,16 @@ namespace FirstCSApp
                     }
 
                     Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choice = Console.ReadLine();
+
+                    if (choice == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "2":
@@ -61,6 +82,16 @@ namespace FirstCSApp
                     }
 
                     Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceTwo = Console.ReadLine();
+
+                    if (choiceTwo == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "3":
@@ -72,6 +103,16 @@ namespace FirstCSApp
                     }
 
                     Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceThree = Console.ReadLine();
+
+                    if (choiceThree == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "4":
@@ -83,6 +124,16 @@ namespace FirstCSApp
                     }
 
                     Console.WriteLine("Updated Battery Life: " + BatteryLife + "%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceFour = Console.ReadLine();
+
+                    if (choiceFour == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
             }
         }

@@ -20,12 +20,23 @@ namespace FirstCSApp.Models
 
         public void Drive()
         {
-            Console.WriteLine($"Starting {Name}....");
+            Console.WriteLine($"\nStarting {Name}....");
             Console.WriteLine("Vrroooommmm!");
 
             TankFillStatus -= 30;
 
-            Console.WriteLine("Current Tank Status: " + TankFillStatus+ "%");
+            Console.WriteLine("\nCurrent Tank Status: " + TankFillStatus+ "%");
+            Console.WriteLine("Would you like to refill?");
+            Console.WriteLine("1. Yes");
+            Console.WriteLine("2. No");
+            Console.Write("> ");
+
+            string refill = Console.ReadLine();
+
+            if (refill == "1")
+            {
+                Refill();
+            }
         }
 
         public void Refill()
@@ -49,7 +60,17 @@ namespace FirstCSApp.Models
                         TankFillStatus = 100;
                     }
 
-                    Console.WriteLine($"Tank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choice = Console.ReadLine();
+
+                    if (choice == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "2":
@@ -60,7 +81,17 @@ namespace FirstCSApp.Models
                         TankFillStatus = 100;
                     }
 
-                    Console.WriteLine($"Tank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceTwo = Console.ReadLine();
+
+                    if (choiceTwo == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "3":
@@ -71,7 +102,17 @@ namespace FirstCSApp.Models
                         TankFillStatus = 100;
                     }
 
-                    Console.WriteLine($"Tank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceThree = Console.ReadLine();
+
+                    if (choiceThree == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
 
                 case "4":
@@ -82,7 +123,17 @@ namespace FirstCSApp.Models
                         TankFillStatus = 100;
                     }
 
-                    Console.WriteLine($"Tank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\nTank filled up to {TankFillStatus}%");
+                    Console.WriteLine($"\n1. Go for another drive?");
+                    Console.WriteLine($"2. Exit");
+                    Console.Write("> ");
+                    string choiceFour = Console.ReadLine();
+
+                    if (choiceFour == "1")
+                    {
+                        Drive();
+                    }
+
                     break;
             }
 
